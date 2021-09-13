@@ -9,7 +9,14 @@ public class MyMain {
     //     binaryToDecimal("110010") => 50
     public static int binaryToDecimal(String binary) {
         // REPLACE WITH YOUR CODE
-        return -1;
+        double curval = 0;
+        int countval = 0;
+        for (int i = 0; i < binary.length(); i++) {
+            int charac = Integer.parseInt(binary.substring(binary.length() - i-1,binary.length() - i));
+            curval = curval + charac*Math.pow(2,countval);
+            countval++;
+        }
+        return (int) curval;
     }
 
     // Given a decimal number (e.g. 152) as input, and returns a String
@@ -17,13 +24,23 @@ public class MyMain {
     // Ex. decimalToBinary(7) => "111"
     //     decimalToBinary(152) => "10011000"
     public static String decimalToBinary(int decimal) {
-        // REPLACE WITH YOUR CODE
-        return "";
+        String output = "";
+        while (decimal != 0) {
+            output = output + decimal %(2);
+            decimal = (decimal - (decimal%2)) / 2;
+        }
+        return output;
     }
     
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        System.out.println("Type in a number in binary format:");
+        String scan1 = scan.nextLine();
+        System.out.println("That is equal to the decimal value: "+scan1);
+        System.out.println("Type in a number in decimal format");
+        String scan2 = scan.nextLine();
+        System.out.print("That is equal to the binary value: "+scan2);
         // YOUR CODE HERE
     }
 }
