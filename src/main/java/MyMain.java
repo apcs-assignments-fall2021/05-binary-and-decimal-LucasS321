@@ -26,7 +26,7 @@ public class MyMain {
     public static String decimalToBinary(int decimal) {
         String output = "";
         while (decimal != 0) {
-            output = output + decimal %(2);
+            output = decimal %(2) + output;
             decimal = (decimal - (decimal%2)) / 2;
         }
         return output;
@@ -37,10 +37,10 @@ public class MyMain {
         Scanner scan = new Scanner(System.in);
         System.out.println("Type in a number in binary format:");
         String scan1 = scan.nextLine();
-        System.out.println("That is equal to the decimal value: "+scan1);
+        System.out.println("That is equal to the decimal value: "+binaryToDecimal(scan1));
         System.out.println("Type in a number in decimal format");
-        String scan2 = scan.nextLine();
-        System.out.print("That is equal to the binary value: "+scan2);
+        int scan2 = scan.nextInt();
+        System.out.print("That is equal to the binary value: "+decimalToBinary(scan2));
         // YOUR CODE HERE
     }
 }
