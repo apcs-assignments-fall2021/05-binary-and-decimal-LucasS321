@@ -24,6 +24,9 @@ public class MyMain {
     // Ex. decimalToBinary(7) => "111"
     //     decimalToBinary(152) => "10011000"
     public static String decimalToBinary(int decimal) {
+        if (decimal == 0) {
+            return 0;
+        }
         String output = "";
         while (decimal != 0) {
             output = decimal %(2) + output;
